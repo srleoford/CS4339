@@ -1,5 +1,6 @@
 <?php
 
+/* TODO: Translate from Java correctly */
 class Settlement {
 	public function stringCompareTo($v1, $v2)
 	{
