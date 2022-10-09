@@ -32,7 +32,7 @@ class BTree {
         preOrderTraversal();
     }
 
-    public function insertData(string $treePath, $data)
+    public function insertData(string $treePath, $data): void
     {
         try
         {
@@ -101,7 +101,7 @@ class BTree {
     function preOrderTraversalByLevel(BTNode $node, int $level)
     {
         for ($i = 0; $i < $level; $i++)
-            print('  ');
+            echo '  ';
         if ($node == null)
         {
             print("[]" . PHP_EOL);

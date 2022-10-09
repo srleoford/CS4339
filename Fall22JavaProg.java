@@ -145,6 +145,9 @@ public class Fall22JavaProg {
         }
         FamilyMember m = new FamilyMember(firstName, lastName, siblings);
         tree.insertData(treePath,m);
-        currentToken = t.nextToken(); 
+        currentToken = t.nextToken();
+
+        System.out.println("This is the treePath: " + treePath);
+        System.out.println("This is the result of treePath comparison: " + !treePath.matches("^[FMR]+$"));
     }    
 }

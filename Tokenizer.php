@@ -16,64 +16,6 @@ class Tokenizer {
         $this->currentChar = $this->charArray[0];
     }
 
-//    public function nextToken(): Token
-//    {
-//        print("This is i: " . $this->i);
-//        // Skip whitespace characters
-//        while ($this->i < count($this->charArray) && strrchr(" \n\t\r", $this->charArray[$this->i]) >= 0)
-//        {
-//            $this->i++;
-//            $this->currentChar = $this->charArray[$this->i];
-//        }
-//        print("This is the current character index: " . (string)$this->i . "\n");
-//        if ($this->i >= count($this->charArray))
-//        {
-//            return new Token(new TokenType(TokenType::EOF));
-//        }
-//        // Check for INT
-//        $inputString = array();
-//        while ($this->i < count($this->charArray) && strrchr("0123456789", $this->charArray[$this->i]) >= 0)
-//        {
-//            array_push($inputString, $this->charArray[$this->i++]);
-//        }
-//        if (strcmp("", implode($inputString)) != 0)
-//        {
-//            print("This is the input string: " . implode("", $inputString) . "\n");
-//            return new Token( new TokenType(TokenType::INT), implode("", $inputString));
-//        }
-//
-//        // We're left with strings or character tokens
-//        switch ($this->charArray[$this->i])
-//        {
-//            case '[':
-//                return new Token(new TokenType(TokenType::LSQUAREBRACKET),"[");
-//            case ']':
-//                return new Token(new TokenType(TokenType::RSQUAREBRACKET),"]");
-//            case '-':
-//                return new Token(new TokenType(TokenType::DASH),"-");
-//            case ',':
-//                return new Token(new TokenType(TokenType::COMMA),",");
-//            case '"':
-//                $value = "";
-//                while ($this->i < count($this->charArray) && $this->charArray[$this->i] != '"')
-//                {
-//                    $c = $this->charArray[$this->i++];
-//                    if ($this->i >= count($this->charArray))
-//                        return new Token( new TokenType(TokenType::OTHER));
-//                    // check for escaped double quote
-//                    if ($c == '\\' && $this->charArray[$this->i] == '"') {
-//                        $c='"';
-//                        $this->i++;
-//                    }
-//                    $value = $value . $c;
-//                }
-//                $this->i++;
-//                return new Token(new TokenType(TokenType::STRING), $value);
-//        }
-//        // OTHER should result in exception
-//        return new Token(new TokenType(TokenType::OTHER));
-//    }
-
     public function nextToken() : Token
     {
         // Skip whitespace characters
@@ -131,11 +73,3 @@ class Tokenizer {
         return new Token(new TokenType(TokenType::OTHER));
     }
 }
-
-
-$tokenizer = new Tokenizer("    Let's check this string!");
-print_r($tokenizer);
-
-print_r("--------------------------------------------------\n");
-$nextToken = $tokenizer->nextToken();
-print_r("Here is the token: '" . $nextToken->value. "'|\n");

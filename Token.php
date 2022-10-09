@@ -42,6 +42,7 @@ class Token
             case "DASH":
                 return "DASH";
             case "COMMA":
+
                 return "COMMA";
             case "INT":
                 return "INT" . $this->value;
@@ -52,3 +53,4 @@ class Token
         }
     }
 }
+
