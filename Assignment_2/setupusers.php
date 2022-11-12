@@ -1,6 +1,7 @@
 <?php //setupusers.php
   require_once 'login.php';
 
+  echo "Setting up users...";
   try
   {
     $pdo = new PDO($attr, $user, $pass, $opts);
@@ -49,4 +50,16 @@ add_user($pdo, $forename, $surname, $username, $hash);
 
     $stmt->execute([$fn, $sn, $un, $pw, 0]);
   }
+
+function add_admin($pdo, $fn, $sn, $un, $pw)
+{
+  $stmt = $pdo->prepare('INSERT INTO users VALUES(?,?,?,?, DEFAULT, DEFAULT,?)');
+
+  $stmt->bindParam(1, $fn, PDO::PARAM_STR,  32);
+  $stmt->bindParam(2, $sn, PDO::PARAM_STR,  32);
+  $stmt->bindParam(3, $un, PDO::PARAM_STR,  32);
+  $stmt->bindParam(4, $pw, PDO::PARAM_STR, 255);
+
+  $stmt->execute([$fn, $sn, $un, $pw, 1]);
+}
 ?>
